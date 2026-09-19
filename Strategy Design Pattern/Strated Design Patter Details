@@ -1,0 +1,48 @@
+What is Strategy Design Pattern ?
+
+In Laymen term, we can say that in strategy design pattern we have multiple ways of doing a same task and
+you want to be able to switch between them Easily.
+
+To achieve this we Use Interface
+
+Example Of Strategy Design Pattern
+
+Suppose I want to do Payment, now Payment can be made using UPI, Credit Card, Netbanking, etc
+So here there are multiple ways to do this task
+
+Now Lets Implement it
+
+interface PaymentStrategy(){
+    void pay();
+}
+
+class UPIPayment implements PaymentStrategy(){
+  void pay{
+  Sysout("UPI Payment Done");
+  }
+}
+
+class CreditCardPayment implements PaymentStrategy(){
+   void pay(){
+   Sysout("Credit Payment DOne");
+   }
+}
+
+class Payment{
+    PaymentStrategy payment;
+    public Payment(PaymentStrategy p){
+       this.payment = p;
+    }
+
+    void makePayment(){
+        payment.pay();
+    }
+
+}
+
+class Main(){
+     main(){
+        Payment p = new Payment(new UPIPayment());
+        p.makePayment();
+     }
+}
