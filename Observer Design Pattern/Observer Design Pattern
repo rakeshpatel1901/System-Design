@@ -1,0 +1,39 @@
+What is Observer Design Pattern ?
+
+In this Pattern,  when one object changes multiple other object need to know about the Change.
+
+Think of It Like Youtube Channel, Where when ever user Upload a Videos multiple users get the notifications
+who have subscribed the channel
+
+It is like One to Many Relationship
+
+Why to use Observer Design Pattern ?
+
+Without Observer Design Pattern For Example When anyone order a Product i want once order is placed to call
+notification, Update Inventory, Notify Admin ... N number of Operations
+Then i  will do this stuff like
+
+void orderplaced(){
+  notification();
+  updateInventory();
+  notifyAdmin();
+}
+
+As we can see this are tightly coupled/connected.
+
+
+With Observer Pattern, what i will do is when order is placed just notify all the observer
+
+                   OrderPlaced
+                        |
+                    notifyObservers
+                         |
+    ________________________________________________
+    |                    |                         |
+Notification          UpdateInventory          notifyAdmin
+
+So here we just notify the Observers and they will do their stuff
+
+
+
+Observer -> Notify who needs to know something.
