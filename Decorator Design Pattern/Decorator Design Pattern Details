@@ -1,0 +1,44 @@
+What is Decorator Design Pattern ?
+
+The Decorator Design Pattern is used when we want to add new Features/behavior without modifying the existing
+Class.
+
+In Decorator we Dynamically add Features/behavior to object
+
+
+Why do we need Decorator Design Pattern ?
+Without Decorator suppose, i Have Pizza and i want extra cheese or Vegies on It.
+i will create new Class with CheesePizza or VegiesPizza or CheeseVegiesPizza, this will lead to multiple
+classes (over Crowding)
+
+With Decorator what we Does we Wrap the base class with the decorator
+
+The Decorator has both is-a and has-a relationship
+
+
+Example of Decorator
+
+interface Coffee{
+    int getCost();
+}
+
+class Caphecino implements Coffee{
+    int getCost(){return 100}
+}
+
+interface Decorator extends Coffee{
+
+}
+
+class ExtraSugar implements Decorator{
+    Coffee coffee;
+    public ExtraSugar(Coffee coffee){
+    this.coffee = coffee;
+    }
+
+    int getCost(){
+        coffee.getCost + 20;
+    }
+}
+
+
