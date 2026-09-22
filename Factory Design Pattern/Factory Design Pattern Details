@@ -1,0 +1,46 @@
+What is Factory Design Pattern ?
+
+Factory Design Pattern is a creational design pattern. It is Used when we want to create an object, but
+we dont want the code that uses those objects to worry about how object is created.
+
+Factory Design pattern is used to only about creation of Object.
+
+Instead for creating the object using new keyword ask the Factory to create the object for You.
+
+
+For Example :
+
+interface Pizza{
+    int getCost();
+}
+
+class PaneerPizza implements Pizza{
+    int getCost(){
+     return 200;
+    }
+}
+
+class VeggiesPizza implements Pizza{
+     int getCost(){
+      return 150;
+     }
+}
+
+class PizzaFactory{
+    public static Pizza getPizza(String type){
+         if(type.equals("Veggies")){
+            return new VeggiesPizza();
+         }
+         else if(type.equals("Paneer")){
+            return new PaneerPizza();
+         }
+         else{ throw exception };
+    }
+}
+
+class Main{
+    public static void main(String args[]){
+        Pizza pizza = PizzaFactory.getPizza("Paneer");
+        int cost = pizza.getCost();
+    }
+}
